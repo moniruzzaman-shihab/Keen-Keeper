@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-    <div className="max-w-11/12  mx-auto flex flex-col items-center justify-center py-12 px-4 ">
+    <div className="max-w-11/12  mx-auto flex flex-col items-center justify-center py-12  ">
       <h1 className="text-4xl font-bold text-gray-900 mb-4">Friends to keep close in your life</h1>
       <p className="text-gray-600 mb-8 text-center max-w-md">
         Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
@@ -12,7 +12,7 @@ const Banner = () => {
         + Add a Friend
       </button>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-5xl">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 w-full max-w-11/12 mx-auto">
         {[
           { label: 'Total Friends', count: 10 },
           { label: 'On Track', count: 3 },
