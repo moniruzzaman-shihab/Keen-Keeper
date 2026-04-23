@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { useParams } from 'react-router';
+import { toast } from 'react-toastify';
 
 const friendsPromise = fetch("/friends.json").then((res) => res.json());
 
@@ -19,6 +20,7 @@ const FriendDetails = () => {
 
   if (!friend) return <div>Friend not found!</div>;
 
+
   const handleAction = (type) => {
     const newEvent = {
       id: Date.now(),
@@ -33,12 +35,17 @@ const FriendDetails = () => {
 
     const existing = JSON.parse(localStorage.getItem("timeline")) || [];
     localStorage.setItem("timeline", JSON.stringify([newEvent, ...existing]));
+
+   
+    if (type === "call") toast.success("📞 Call successful!");
+    else if (type === "text") toast.success("💬 Text sent successfully!");
+    else if (type === "video") toast.success("📹 Video call successful!");
   };
 
   return (
     <div className="p-8 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
-     
+   
       <div className="md:col-span-1 bg-white p-6 rounded-2xl border shadow-sm">
         <img src={friend.picture} alt={friend.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
         <h2 className="text-2xl font-bold text-center">{friend.name}</h2>
@@ -55,17 +62,11 @@ const FriendDetails = () => {
 
         <p className="text-gray-600 text-sm mt-4 text-center italic">"{friend.bio}"</p>
         <p className="text-gray-400 text-xs mt-2 text-center">Preferred: {friend.email}</p>
-
-        <div className="mt-6 space-y-3">
-          <button className="w-full py-2 border rounded-lg hover:bg-gray-50 text-sm">⏰ Snooze 2 Weeks</button>
-          <button className="w-full py-2 border rounded-lg hover:bg-gray-50 text-sm">📦 Archive</button>
-          <button className="w-full py-2 border rounded-lg hover:bg-red-50 text-red-600 text-sm">🗑️ Delete</button>
-        </div>
       </div>
+
 
       <div className="md:col-span-2 space-y-6">
 
-      
         <div className="grid grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded-xl border text-center">
             <div className="text-2xl font-bold">{friend.days_since_contact}</div>
@@ -81,17 +82,6 @@ const FriendDetails = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border flex justify-between items-center">
-          <div>
-            <h3 className="font-bold">Relationship Goal</h3>
-            <p className="text-sm text-gray-600">
-              Connect every <span className='font-bold'>{friend.goal} days</span>
-            </p>
-          </div>
-          <button className="px-4 py-1 border rounded hover:bg-gray-50 text-sm">Edit</button>
-        </div>
-
-    
         <div className="bg-white p-6 rounded-xl border">
           <h3 className="font-bold mb-4">Quick Check-In</h3>
 

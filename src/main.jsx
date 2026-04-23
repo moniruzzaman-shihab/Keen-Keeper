@@ -8,6 +8,8 @@ import Timeline from './components/Timeline'
 import Stats from './components/Stats'
 import Error from './components/Error'
 import FriendDetails from '../FriendDetails'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 const router = createBrowserRouter([{
   path:"/",
   element:<MainLayout/>,
@@ -39,5 +41,6 @@ errorElement: <Error/>
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}/>
+    <ToastContainer/>
   </StrictMode>,
 )
