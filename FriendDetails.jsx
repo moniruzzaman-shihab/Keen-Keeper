@@ -19,20 +19,40 @@ const FriendDetails = () => {
 
   if (!friend) return <div>Friend not found!</div>;
 
+  const handleAction = (type) => {
+    const newEvent = {
+      id: Date.now(),
+      type,
+      friendName: friend.name,
+      date: new Date().toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      }),
+    };
+
+    const existing = JSON.parse(localStorage.getItem("timeline")) || [];
+    localStorage.setItem("timeline", JSON.stringify([newEvent, ...existing]));
+  };
+
   return (
     <div className="p-8 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
+     
       <div className="md:col-span-1 bg-white p-6 rounded-2xl border shadow-sm">
         <img src={friend.picture} alt={friend.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
         <h2 className="text-2xl font-bold text-center">{friend.name}</h2>
-        <div className="flex justify-center gap-2 my-2">
-            <span className={`text-xs px-3 py-1 rounded-full uppercase font-bold ${getStatusStyles(friend.status)}`}>
-                {friend.status}
-            </span> <br />
-            {friend.tags.map(tag => (
-                <span key={tag} className="text-xs bg-gray-100 px-3 py-1 rounded-full uppercase">{tag}</span>
-            ))}
+
+        <div className="flex justify-center gap-2 my-2 flex-wrap">
+          <span className={`text-xs px-3 py-1 rounded-full uppercase font-bold ${getStatusStyles(friend.status)}`}>
+            {friend.status}
+          </span>
+
+          {friend.tags.map(tag => (
+            <span key={tag} className="text-xs bg-gray-100 px-3 py-1 rounded-full uppercase">{tag}</span>
+          ))}
         </div>
+
         <p className="text-gray-600 text-sm mt-4 text-center italic">"{friend.bio}"</p>
         <p className="text-gray-400 text-xs mt-2 text-center">Preferred: {friend.email}</p>
 
@@ -43,9 +63,9 @@ const FriendDetails = () => {
         </div>
       </div>
 
-     
       <div className="md:col-span-2 space-y-6">
- 
+
+      
         <div className="grid grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded-xl border text-center">
             <div className="text-2xl font-bold">{friend.days_since_contact}</div>
@@ -61,23 +81,33 @@ const FriendDetails = () => {
           </div>
         </div>
 
- 
         <div className="bg-white p-6 rounded-xl border flex justify-between items-center">
           <div>
             <h3 className="font-bold">Relationship Goal</h3>
-            <p className="text-sm text-gray-600">Connect every <span className='font-bold'>{friend.goal} days</span></p>
+            <p className="text-sm text-gray-600">
+              Connect every <span className='font-bold'>{friend.goal} days</span>
+            </p>
           </div>
           <button className="px-4 py-1 border rounded hover:bg-gray-50 text-sm">Edit</button>
         </div>
 
+    
         <div className="bg-white p-6 rounded-xl border">
           <h3 className="font-bold mb-4">Quick Check-In</h3>
+
           <div className="grid grid-cols-3 gap-4">
-            <button className="py-4 border rounded-xl hover:bg-emerald-50">📞 Call</button>
-            <button className="py-4 border rounded-xl hover:bg-emerald-50">💬 Text</button>
-            <button className="py-4 border rounded-xl hover:bg-emerald-50">📹 Video</button>
+            <button onClick={() => handleAction("call")} className="py-4 border rounded-xl hover:bg-emerald-50">
+              📞 Call
+            </button>
+            <button onClick={() => handleAction("text")} className="py-4 border rounded-xl hover:bg-emerald-50">
+              💬 Text
+            </button>
+            <button onClick={() => handleAction("video")} className="py-4 border rounded-xl hover:bg-emerald-50">
+              📹 Video
+            </button>
           </div>
         </div>
+
       </div>
     </div>
   );
