@@ -5,9 +5,8 @@ import { NavLink } from 'react-router';
 
 const NavBar = () => {
      return (
-    <nav className="w-full bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        
+    <nav className="w-full bg-white border-b border-gray-200 sm:flex-col">
+<div className="max-w-7xl mx-auto px-6 py-3 flex flex-col sm:flex-row items-center justify-between">
         <img src="/logo.png" alt="logo" className="h-8" />
 
         <div className="flex items-center gap-6">
