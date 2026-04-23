@@ -12,7 +12,7 @@ const Banner = () => {
         + Add a Friend
       </button>
 
-      <div className="grid grid-cols-4 max-w-[570px]:grid-cols-1  gap-10 w-full max-w-11/12 mx-auto">
+      <div className="grid grid-cols-4 sm:grid-cols-1  gap-10 w-full max-w-11/12 mx-auto">
         {[
           { label: 'Total Friends', count: 8 },
           { label: 'On Track', count: 3 },
