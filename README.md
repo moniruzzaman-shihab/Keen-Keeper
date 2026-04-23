@@ -1,16 +1,51 @@
-# React + Vite
+# Keen-Keeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Name
 
-Currently, two official plugins are available:
+**Keen-Keeper** – Friendship Manager 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📖 Short Description
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Keen-Keeper is a simple and intuitive friendship manager application designed to help users keep track of their friends, organize personal connections, and maintain meaningful relationships. It allows users to store friend details, manage interactions, and stay connected with important people in their lives.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+* React.js
+* Rest API
+* React-Router
+* Tailwind CSS
+
+---
+
+## ✨ Key Features
+
+### 1. 👥 Friend Management
+
+Add, edit, and delete friend profiles with essential details like name, contact info, and notes.
+
+### 2. 📅 Interaction Tracking
+
+Keep a record of last interaction dates and reminders to stay connected with friends.
+
+### 3. 🔍 Smart Search & Organization
+
+Easily search and filter friends based on name, tags, or relationship type.
+
+---
+
+## 🚀 Future Improvements
+
+* Authentication system (login/signup)
+* Reminder notifications
+* Social media integration
+* Mobile-friendly UI
+
+---
+
+## 💡 Purpose
+
+Keen-Keeper is built to strengthen personal relationships by making friendship management simple, organized, and consistent.
