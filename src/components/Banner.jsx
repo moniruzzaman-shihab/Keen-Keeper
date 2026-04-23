@@ -11,8 +11,7 @@ const Banner = () => {
       <button className="bg-emerald-900 text-white px-6 py-2 rounded-md font-medium mb-12 hover:bg-emerald-800 transition-colors">
         + Add a Friend
       </button>
-
-      <div className="grid grid-cols-4 sm:grid-cols-1  gap-10 w-full max-w-11/12 mx-auto">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 w-full max-w-11/12 mx-auto">
         {[
           { label: 'Total Friends', count: 8 },
           { label: 'On Track', count: 3 },
