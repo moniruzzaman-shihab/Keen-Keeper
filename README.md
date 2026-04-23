@@ -18,6 +18,7 @@ Keen-Keeper is a simple and intuitive friendship manager application designed to
 * Rest API
 * React-Router
 * Tailwind CSS
+* Rechart
 
 ---
 
